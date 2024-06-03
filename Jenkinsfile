@@ -14,11 +14,8 @@ pipeline {
      stage('Maven clean install') {
         steps {
             script {
-                // Ajusta la variable proxyPath si es necesario
-                def proxyPath = env.proxyPath ?: 'swsysproxy'
-                
                 // Ejecuta el comando Maven
-                sh "mvn -f src/main/apigee/apiproxies/${proxyPath}/pom.xml clean install -Pbuildapi"
+                sh "mvn -f src/main/apigee/apiproxies/${PROXY_PATH}/pom.xml clean install -Pbuildapi"
             }
         }
     }
@@ -29,7 +26,7 @@ pipeline {
     SONAR_SERVER = 'https://devtools.axity.com/sonarlts'
     HARBOR_URL = 'demo.goharbor.io'
     HARBOR_USERNAME = 'fidel.rodriguez'
-    proxyPath = 'swsysproxy'
+    PROXY_PATH = 'swsysproxy'
   }
   post {
     success {
