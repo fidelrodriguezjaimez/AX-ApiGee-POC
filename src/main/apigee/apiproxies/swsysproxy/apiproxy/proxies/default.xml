@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+  <DefaultFaultRule name="allErrors">
+   <AlwaysEnforce>true</AlwaysEnforce>
+    <Step>
+      <Name>FC-ErrorHandler</Name>
+      <Condition>(errorMessage.origin = null)</Condition>
+    </Step>
+    <Step>
+      <Name>AM-ErrorMessageResponse</Name>
+      <Condition>(errorMessage.origin = null)</Condition>
+    </Step>
+    <Step>
+      <Name>AM-ErrorAndOriginMessageResponse</Name>
+      <Condition>(errorMessage.origin != null)</Condition>
+    </Step>   
+  </DefaultFaultRule>
+  <PreFlow name="PreFlow">
+    <Request>
+      <Step>
+        <Name>FC-ValidateJWToken</Name>
+      </Step>
+    </Request>
+    <Response/>
+  </PreFlow>
+  <Flows>
+    <Flow name="Get healthcheck">
+      <Description>Get healthcheck</Description>
+      <Condition>(request.verb = "GET") and (proxy.pathsuffix Matches "/v1/api/sys/healthcheck")</Condition>
+    </Flow>
+    <Flow name="Get characters">
+      <Description>Get details of one airport</Description>
+      <Condition>(request.verb = "GET") and (proxy.pathsuffix Matches "/v1/api/sys/characters")</Condition>
+    </Flow>
+    <Flow name="NotFound">
+      <Request>
+        <Step>
+          <Name>AM-SetRouteRuleNoRule</Name>
+        </Step>
+        <Step>
+          <Name>RF-NotFound</Name>
+        </Step>
+      </Request>
+      <Response/>
+    </Flow>
+  </Flows>
+  <HTTPProxyConnection>
+    <BasePath>/rec</BasePath>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <Condition>RouteRule != "NoRule"</Condition>
+    <TargetEndpoint>default</TargetEndpoint>
+  </RouteRule>
+  <RouteRule name="NoRoute"/>
+</ProxyEndpoint>

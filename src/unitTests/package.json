@@ -1,0 +1,35 @@
+{
+    "name": "cicd-v1",
+    "version": "1.0.0",
+    "description": "Sample Proxy for Azure CI/CD",
+    "author": "Axity",
+    "license": "Apache-2.0",
+    "licenses": [
+        {
+            "type": "Apache-2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0"
+        }
+    ],
+    "dependencies": {
+        "jsonpath-plus": "^5.0.7",
+        "mocha": "^7.2.0",
+        "nyc": "^15.0.1",
+        "prettier": "^2.0.5",
+        "sinon": "^9.0.2"
+    },
+    "jest": {
+        "reporters": [
+            "default",
+            [
+                "jest-junit",
+                {
+                    "outputDirectory": "junit-test-results",
+                    "outputName": "unit-test-results-output.xml"
+                }
+            ]
+        ]
+    },
+    "devDependencies": {
+        "jest-junit": "^16.0.0"
+    }
+}

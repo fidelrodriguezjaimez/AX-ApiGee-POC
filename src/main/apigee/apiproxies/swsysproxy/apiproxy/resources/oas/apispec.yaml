@@ -1,0 +1,89 @@
+openapi: 3.0.0
+
+info:
+  title: transaction
+  version: 2.0.2
+  description: Api to retrieve all the caracters of Star Wars.
+  
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  
+servers:
+  - url: https://${host_name}/rec
+    variables:
+      host_name:
+        description: host de la API
+        enum:
+          - localhost
+          - myspace
+        default: localhost
+paths:
+  /v1/api/sys/healthcheck:
+    get:
+      summary: Get healthcheck
+      tags:
+        - healthcheck
+      responses:
+        '200':
+          description: 'OK. requested healthcheck found'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      description: Validate diagnosis and API dependencies
+      operationId: Get healthcheck
+  /v1/api/sys/characters:
+    get:
+      summary: Get details of one airport
+      tags:
+        - characters
+      responses:
+        '200':
+          description: 'OK. The request has succeeded'
+          headers:
+            Content-Type:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                example: Can not resolve examples/ex-characters-response.json
+                type: object
+        '404':
+          description: KO. requested Airport not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      description: Retrieve characters of Star Wars saga.
+      operationId: Get characters
+components:
+  schemas:
+    NotFound:
+      title: Not Found error
+      type: object
+      properties:
+        errror:
+          description: rank number in list
+          type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Not Found"
+            code:
+              type: integer
+              example: 404
+            message:
+              type: string
+              example: "Not Found"
+

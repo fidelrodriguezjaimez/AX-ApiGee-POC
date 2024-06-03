@@ -1,0 +1,13 @@
+[
+  {
+    "value": "characters",
+    "valuehealth":"healthcheck",
+    "valueInvalid":"character",
+    "protocol": "{{protocol}}",      
+    "host":"{{host}}",
+    "clientId":"{{clientId}}",
+    "clientSecret":"{{clientSecret}}",
+    "scope":"{{scope}}",
+    "autorizacionUrl": "{{authHost}}"
+  }
+]

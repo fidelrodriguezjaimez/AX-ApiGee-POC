@@ -1,0 +1,15 @@
+{
+  "proxies": [
+    {
+      "name": "swsysproxy"
+    }
+  ],
+  "sharedflows": [
+    {
+      "name": "UF-VerifyToken"
+    },
+    {
+      "name": "UF-ErrorHandler"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+[
+  {
+    "enabled": true,
+    "name": "ts-swsys",
+    "description": "Target para desarrollo",
+    "host": "sw-sys-api-dev-5ydoj5.usezvl.usa-e2.cloudhub.io",
+    "port": 443
+  },
+  {
+    "name": "Target-AzAD-Oauth2-Flows",
+    "host": "login.microsoftonline.com",
+    "port": 443,
+    "isEnabled": true,
+    "sSLInfo": {
+        "enabled": true
+    },
+    "protocol": "HTTP"
+  }
+]

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage continueOnError="false" enabled="true" name="AM-ErrorAndOriginMessageResponse">
+  <DisplayName>AM-ErrorAndOriginMessageResponse</DisplayName>
+  <Remove>
+    <Headers>
+      <Header name="FaultHeader"/>
+    </Headers>
+  </Remove>
+  <Set>
+    <Headers>
+      <Header name="Content-Type">application/json</Header>
+    </Headers>
+    <Payload contentType="application/json">
+            {   
+                "error": "{errorMessage.code}",
+                "error_description": "{errorMessage.detail}",
+                "origin": "{errorMessage.origin}"
+            }
+        </Payload>
+    <StatusCode>{errorMessage.status}</StatusCode>
+  </Set>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+  <AssignTo createNew="true" transport="http" type="response">error</AssignTo>
+</AssignMessage>
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault continueOnError="false" enabled="true" name="RF-NotFound">
+  <DisplayName>RF-NotFound</DisplayName>
+  <Properties/>
+  <FaultResponse>
+    <Add>
+      <Headers>
+        <Header name="FaultHeader">ResourceNotFoundError</Header>
+      </Headers>
+    </Add>
+  </FaultResponse>
+  <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

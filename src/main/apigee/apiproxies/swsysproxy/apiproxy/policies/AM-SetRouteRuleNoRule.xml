@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-SetRouteRuleNoRule">
+    <DisplayName>AM-SetRouteRuleNoRule</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>RouteRule</Name>
+        <Value>NoRule</Value>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</AssignMessage>

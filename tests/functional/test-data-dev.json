@@ -1,0 +1,13 @@
+[
+  {
+    "value": "characters",
+    "valuehealth":"healthcheck",
+    "valueInvalid":"character",
+    "protocol": "http",      
+    "host":"localhost:8998",
+    "clientId":"5e5e8c00-4fd4-4361-b353-a866e8bdc393",
+    "clientSecret":"Qkm8Q~zf9MGbpKmcweKM-sFkLuk2qMLbFjWlxcp2",
+    "scope":"api://5e5e8c00-4fd4-4361-b353-a866e8bdc393/.default",
+    "autorizacionUrl": "https://dev-apigee-ar.coppel.space/party-identity/oauth2/v1/token"
+  }
+]
