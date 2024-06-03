@@ -1,1 +1,20 @@
-
+{
+    "configurations": [
+        {
+            "name": "buildapi",
+            "policies": [
+                {
+                    "name": "AM-AirportsMock.xml",
+                    "tokens": [
+                        {
+                            "xpath": "/AssignMessage/Set/Headers/Header[@name='ENV']",
+                            "value": "dev"
+                        }
+                    ]
+                }
+            ],
+            "proxies": [],
+            "targets": []
+        }
+    ]
+}
