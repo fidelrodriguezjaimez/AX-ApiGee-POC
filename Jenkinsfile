@@ -19,6 +19,7 @@ pipeline {
 
                 // Reemplazar los tokens
                 configFile = fileContent.replace('#{apiName}#', API_NAME)
+          configFile = fileContent.replace('${deployment.suffix}', SUFFIX)
 
                 // Guardar el archivo modificado en el mismo lugar
                 writeFile file: configFile, text: fileContent
@@ -48,6 +49,7 @@ pipeline {
     ROOT_DIRECTORY = "src/main/apigee/apiproxies/${PROXY_PATH}"
     API_NAME = 'APIGEE-POC'
     POM_FILE = 'pom.xml'
+    SUFFIX = '-V1'
   }
   post {
     success {
