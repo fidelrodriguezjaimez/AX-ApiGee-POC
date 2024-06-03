@@ -45,7 +45,7 @@ pipeline {
     HARBOR_URL = 'demo.goharbor.io'
     HARBOR_USERNAME = 'fidel.rodriguez'
     PROXY_PATH = 'swsysproxy'
-    ROOT_DIRECTORY = 'src/main/apigee/apiproxies/${PROXY_PATH}'
+    ROOT_DIRECTORY = "src/main/apigee/apiproxies/${PROXY_PATH}"
     API_NAME = 'APIGEE-POC'
     POM_FILE = 'pom.xml'
   }
