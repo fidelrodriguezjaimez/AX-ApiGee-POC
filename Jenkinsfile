@@ -18,8 +18,9 @@ pipeline {
             def fileContent = readFile configFile
 
                 // Reemplazar los tokens
-                configFile = fileContent.replace('#{apiName}#', API_NAME)
-          configFile = fileContent.replace('${deployment.suffix}', SUFFIX)
+                fileContent = fileContent.replace('#{apiName}#', API_NAME)
+          fileContent = fileContent.replace('${deployment.suffix}', SUFFIX)
+
 
                 // Guardar el archivo modificado en el mismo lugar
                 writeFile file: configFile, text: fileContent
