@@ -19,8 +19,6 @@ pipeline {
 
                 // Reemplazar los tokens
                 fileContent = fileContent.replace('#{apiName}#', API_NAME)
-          fileContent = fileContent.replace('${deployment.suffix}', SUFFIX)
-
 
                 // Guardar el archivo modificado en el mismo lugar
                 writeFile file: configFile, text: fileContent
@@ -44,7 +42,7 @@ pipeline {
          steps {
                 echo 'Publishing Apigee-Apis...'
                 // Archivar los artefactos
-                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}${SUFFIX}.zip", fingerprint: true
+                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}.zip", fingerprint: true
             }
         }
         
