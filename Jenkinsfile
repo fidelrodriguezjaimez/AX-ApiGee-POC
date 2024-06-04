@@ -39,6 +39,14 @@ pipeline {
             }
         }
     }
+
+     stage('Publish Apigee-Apis') {
+         steps {
+                echo 'Publishing Apigee-Apis...'
+                // Archivar los artefactos
+                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/**", fingerprint: true
+            }
+        }
         
   }
   environment {
