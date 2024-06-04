@@ -42,7 +42,7 @@ pipeline {
          steps {
                 echo 'Publishing Apigee-Apis...'
                 // Archivar los artefactos
-                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}.zip", fingerprint: true
+                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}${SUFFIX}.zip", fingerprint: true
             }
         }
         
@@ -56,7 +56,7 @@ pipeline {
     ROOT_DIRECTORY = "src/main/apigee/apiproxies/${PROXY_PATH}"
     API_NAME = 'APIGEE-POC'
     POM_FILE = 'pom.xml'
-    SUFFIX = '-V1'
+    SUFFIX = '-v1'
   }
   post {
     success {
