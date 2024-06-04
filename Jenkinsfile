@@ -17,30 +17,29 @@ pipeline {
             def configFile = "${ROOT_DIRECTORY}/${POM_FILE}"
             def fileContent = readFile configFile
 
-                // Reemplazar los tokens
-                fileContent = fileContent.replace('#{apiName}#', API_NAME)
+            // Reemplazar los tokens
+            fileContent = fileContent.replace('#{apiName}#', API_NAME)
 
-                // Guardar el archivo modificado en el mismo lugar
-                writeFile file: configFile, text: fileContent
+            // Guardar el archivo modificado en el mismo lugar
+            writeFile file: configFile, text: fileContent
 
-                // Mostrar el archivo modificado (opcional)
-                echo readFile(configFile)
-              }
+            // Mostrar el archivo modificado (opcional)
+            // echo readFile(configFile)
           }
+        }
     }
 
      stage('Maven clean install') {
         steps {
             script {
                 // Ejecuta el comando Maven
-                sh "mvn -f src/main/apigee/apiproxies/${PROXY_PATH}/pom.xml clean install -Pbuildapi"
+                sh "mvn -f src/main/apigee/apiproxies/${PROXY_PATH}/${POM_FILE} clean install -Pbuildapi"
             }
         }
     }
 
-     stage('Publish Apigee-Apis') {
+     stage('Publish Apigee-Apis Artifact') {
          steps {
-                echo 'Publishing Apigee-Apis...'
                 // Archivar los artefactos
                 archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}${SUFFIX}.zip", fingerprint: true
                 archiveArtifacts artifacts: "${ROOT_DIRECTORY}/pom.xml", fingerprint: true
