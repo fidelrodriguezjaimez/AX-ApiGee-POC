@@ -44,7 +44,7 @@ pipeline {
          steps {
                 echo 'Publishing Apigee-Apis...'
                 // Archivar los artefactos
-                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/**", fingerprint: true
+                archiveArtifacts artifacts: "${ROOT_DIRECTORY}/target/${API_NAME}${SUFFIX}.zip", fingerprint: true
             }
         }
         
